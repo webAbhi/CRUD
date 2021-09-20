@@ -1,0 +1,13 @@
+.pro {
+    border:"1px solid grey";
+    color: red;
+    border-radius: 5%;
+    height:"50%";
+    width :"10%";
+
+}
+
+.info{
+    width: 50%;
+    margin: 0 auto;
+}
