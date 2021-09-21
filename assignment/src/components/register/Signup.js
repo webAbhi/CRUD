@@ -44,7 +44,7 @@ const Signup = ({ setEmplyoee }) => {
     const createUser = () => {
         const { password, confirmPassword, fullName, contact } = profile;
         if ( password  && password === confirmPassword && fullName && contact) {
-            axios.post('http://localhost:9002/create', profile)
+            axios.post('http://localhost:9002/userauth/create', profile)
                 .then((res) => {
                     setEmplyoee(res.data.oj);
                     history.push('/');
@@ -84,7 +84,7 @@ const Signup = ({ setEmplyoee }) => {
                 >
                     <Input name="contact" type = "tel" 
                     button={profile.contact} onChange={handleChange} 
-                    maxlength="10" required />
+                    maxLength="10" required />
                 </Form.Item>
 
                 <Form.Item label="Email"

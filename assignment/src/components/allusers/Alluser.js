@@ -14,7 +14,7 @@ const Alluser = () => {
     },[])
 
     const fetchData = () => {
-         axios.get('http://localhost:9002/allUser')
+         axios.get('http://localhost:9002/useroperation/allUser')
             .then((res) => {
                 setData(res.data.user);
             })

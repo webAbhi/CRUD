@@ -17,7 +17,7 @@ const User = ({ current }) => {
 
 
     const removeElement = (_id) => {
-        axios.post('http://localhost:9002/delete', { id: _id })
+        axios.post('http://localhost:9002/useroperation/delete', { id: _id })
             .then(() => {
                 setRemove(true);
             })

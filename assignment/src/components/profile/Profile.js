@@ -12,7 +12,7 @@ const Profile = ({ emplyoee, setEmplyoee }) => {
         <div >
             {
                 update ?
-                    <Update profile ={emplyoee} setProfile = {setEmplyoee} setUpdate ={setUpdate}/> :
+                    <Update emplyoee ={emplyoee} setEmplyoee = {setEmplyoee} setUpdate ={setUpdate}/> :
                     <div className="pro">
                         <Card title="Profile" bordered={false}
                             className="info"

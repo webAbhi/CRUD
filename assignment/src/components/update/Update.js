@@ -8,13 +8,13 @@ import {
 import axios from 'axios';
 
 
-const Update = ({ profile, setProfile, setUpdate }) => {
+const Update = ({ emplyoee, setEmplyoee, setUpdate }) => {
     const [newinfo, setNewInfo] =  useState({
-        _id : profile._id,
-        fullName :profile.name,
-        contact : profile.Contact,
-        email :profile.Email,
-        password :profile.password
+        _id : emplyoee._id,
+        fullName :emplyoee.name,
+        contact : emplyoee.Contact,
+        email :emplyoee.Email,
+        password :emplyoee.password
     })
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -23,16 +23,25 @@ const Update = ({ profile, setProfile, setUpdate }) => {
             [name]: value,
 
         })
-        console.log(newinfo);
     }
     const updateUser = () => {
-        axios.post("http://localhost:9002/update" , newinfo)
+        setUpdate(false);
+        setEmplyoee({
+            ...emplyoee,
+            name:newinfo.fullName,
+            Contact :newinfo.contact,
+            Email:newinfo.email
+        });
+        
+        axios.post("http://localhost:9002/useroperation/update" , newinfo)
         .then(()=>{
-            setUpdate(false);
+            console.log("update info successfully");
         })
         .catch(()=>{
             console.log("issue while updating")
         })
+        
+
     }
     return (
         <div>
@@ -51,7 +60,7 @@ const Update = ({ profile, setProfile, setUpdate }) => {
                 >
                     <Input name="contact" type="tel"
                         value={newinfo.contact} onChange={handleChange}
-                        maxlength="10" required />
+                        maxLength="10" required />
                 </Form.Item>
 
                 <Form.Item label="Email"

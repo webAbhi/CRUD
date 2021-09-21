@@ -20,7 +20,7 @@ const Login = ({setEmplyoee}) => {
     })
 
     const loginUser = () => {
-        axios.post('http://localhost:9002/login', profile)
+        axios.post('http://localhost:9002/userauth/login', profile)
             .then((res) => {
                 setEmplyoee(res.data.user);
                 console.log(res.data);
